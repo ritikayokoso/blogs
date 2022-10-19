@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<!-- <link rel="stylesheet" href = "{% static 'css/index.css' %}" /> -->
+    <style>
+       .cardbody{
+        display: flex;
+        width: 60%;
+        padding: 1rem;
+        margin: 1rem;
+        border: black;
+    border-style: groove;
+       }
+       .thumbnail{
+        width: 20%;
+       
+       }
+       .cardtext{
+        width: 70%;
+        text-align: start;
+   
+       }
+       .cardblock{
+        text-align: -webkit-center;
+       }
+       p{
+        margin-bottom: 0rem;
+       }
+       h5{
+        font-weight: bolder;
+       }
+       button{
+        border:none;
+        font-weight: bolder;
+       }
+    </style>
+{% endblock %}
+{% block body %}
+<div class="cardblock">
+    <h1>Likes</h1>
+    {% for i in postdetails %}
+    <div class="cardbody">
+      <div class="thumbnail">
+        <img src="{{ i.thumbnail }}" class="card-img-top" alt="thumbnail"></div>
+        <div class="cardtext">
+          <h5 class="card-title">{{i.title}}</h5>
+          <p class="card-text">{{i.date}}</p>
+          <div class="ratings">
+          <p class="price">Starts at {{i.price}}</p>
+        </div>
+        </div>
+       
+          <button type="submit", name="post_id", value="{{i.id}}"><i class="fa fa-heart"></i></button>
+
+       
+      </div>
+      {% endfor %}
+</div>
+{% endblock %}

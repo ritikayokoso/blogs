@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block body %}
+<form action = "login" method="post">
+    {% csrf_token %}
+  
+    <input type="text" name="username"  placeholder="UserName">
+    <input type="password" name="password"  placeholder="Password ">
+    <button type="btn" class="btn"> Submit</button>
+
+</form>
+<div>
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+{% endblock %}
